@@ -1,0 +1,28 @@
+---
+- hosts: agent
+ become: true
+ vars:
+ ansible_become_pass: ansible@Edureka
+ tasks:
+ - name: Install Git
+ package:
+ name: git
+ state: present
+ - name: Run update
+ apt:
+ update_cache: true
+ - name: Install jdk
+ package:
+ name: default-jdk
+ state: present
+ - name: Install chromium browser
+ package:
+ name: chromium-browser
+ state: present
+ - name: Install chromium driver
+ package:
+ name: chromium-chromedriver
+ state: present
+ - name: Run update
+ apt:
+ update_cache: yes
